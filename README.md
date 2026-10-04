@@ -2,44 +2,38 @@
 
 **Cloud, Data & AI Platform Engineering**
 
-My engineering focus is the intersection of distributed systems, data platforms and
-AI infrastructure: clear control-plane boundaries, reliable execution, observable
-failure modes and systems that other engineers can operate and extend.
+My foundation is in data and cloud engineering. I'm increasingly working at the
+intersection of data platforms and AI infrastructure, with the same questions in mind:
+who owns state, what happens when a dependency fails, and how does the next engineer
+operate the system?
 
-Core areas include Azure, Kubernetes/AKS, Python, data platforms, MLOps/LLMOps,
-observability, platform reliability, CI/CD, infrastructure automation and technical
-architecture.
+I work with Python, Azure and Kubernetes/AKS, alongside data platforms, CI/CD,
+infrastructure automation and observability. These projects are a way to examine
+specific design decisions in code and make their trade-offs visible.
 
-## Selected engineering work
+## Selected projects
 
 ### [AI Platform Control Plane](https://github.com/tahahmedk/ai-platform-control-plane)
 
-How should an inference platform preserve tenant, region and budget constraints when
-a model fails? A FastAPI control plane separates server-owned routing policy, atomic
-admission and bounded provider fallback. Mock adapters make the failure paths testable
-without paid services. Demonstrates platform boundaries, reliability trade-offs and
-honest deployment constraints.
+An inference platform needs a place to enforce routing policy and capacity limits.
+This FastAPI implementation puts admission and fallback behind a narrow provider
+interface. I kept the providers synthetic so the interesting failure paths can be
+tested without paid services.
 
 ### [Forward-Deployed Data Accelerator](https://github.com/tahahmedk/forward-deployed-data-accelerator)
 
-How does an implementation team turn an unfamiliar extract into a trustworthy data
-contract? A configurable pipeline profiles CSV/JSON, proposes mappings, quarantines
-invalid records and produces a diagnostic handoff. Demonstrates customer discovery,
-semantic judgment and the separation of delivery success from data acceptance.
+An unfamiliar customer extract is as much a discovery problem as a data problem.
+This toolkit profiles the source, exposes uncertain mappings and separates trusted
+records from quarantine. The diagnostic handoff matters as much as the output file.
 
 ### [Metadata Lakehouse Orchestrator](https://github.com/tahahmedk/metadata-lakehouse-orchestrator)
 
-How can dependency-driven workloads recover without losing incremental progress?
-A metadata planner and bounded scheduler use durable claims, execution history and
-atomic checkpoint commits. Demonstrates DAG design, concurrency control and the
-limits of idempotency across external systems.
+A study of execution ownership and recovery: dependency scheduling, durable claims,
+replay and atomic checkpoint commits. The design makes the gap between recorded
+success and exactly-once external effects explicit.
 
-## Engineering approach
-
-- Make policy and operational assumptions explicit.
-- Test failure paths, replay and ownership boundaries.
-- Treat observability and recovery as part of the architecture.
-- Prefer a small working system with clear limits over unsupported scale claims.
+I prefer designs whose failure behavior I can explain and test. The READMEs and ADRs
+describe the choices I made, where they stop being sufficient, and what I would change next.
 
 [LinkedIn](https://www.linkedin.com/in/tahaahmedk/)
 
